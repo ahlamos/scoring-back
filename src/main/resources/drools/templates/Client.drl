@@ -1,0 +1,27 @@
+template header
+
+name
+object
+conditional
+action
+
+package drools.templates;
+
+global com.example.com.entities.Client client;
+
+import java.text.SimpleDateFormat;
+import function com.example.com.configuration.DroolsUtility.debug;
+
+dialect "java"
+
+template "Client"
+
+rule "@{row.rowNumber} - @{name}"
+when
+   com.example.com.entities.Client(@{conditional})
+then
+    client.discount(@{action});
+		debug(drools);
+end
+
+end template
